@@ -5,6 +5,7 @@ class BooksController < ApplicationController
     @book_1 = Book.new
     # からのボックスにするために新しく定義する必要がある
     @user = @book.user
+    @book_comment = BookComment.new
   end
 
   def index
