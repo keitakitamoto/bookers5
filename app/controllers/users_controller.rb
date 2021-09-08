@@ -24,6 +24,14 @@ class UsersController < ApplicationController
       render :edit
     end
   end
+  
+  def followed
+    @users = User.all
+  end
+  
+  def follower
+    @users = User.all
+  end
 
   private
   def user_params

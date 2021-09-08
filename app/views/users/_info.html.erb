@@ -9,10 +9,17 @@
 	  <th>introduction</th>
 	  <th><%= user.introduction %></th>
   </tr>
+  <tr>
+	  <th>follows</th>
+	  <th><%= link_to user.followings.count,user_followings_path(user) %></th>
+  </tr>
+  <tr>
+	  <th>followers</th>
+	  <th><%= link_to user.followers.count,user_followers_path(user) %></th>
+  </tr>
+  <%#= link_to"フォローする", class:"btn btn-success" %>
+  </div>
 </table>
-
-<div class='row'>
-  <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
-</div>
+  <%= render 'layouts/edit',user: user %>
   <% end %>
   <!--form_with で定義する-->
