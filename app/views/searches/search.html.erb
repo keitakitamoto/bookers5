@@ -1,0 +1,18 @@
+<table>
+ <tr>
+  <td>Title</td>
+  <td>Opinion</td>
+ </tr>
+</table>
+<% if @range == "User" %>
+  <% @users.each do |user| %>
+  <!--検索対象がuserの時、ユーザー一覧を表示-->
+    <%= user.name %>
+  <% end %>
+<% else %>
+  <% @books.each do |book| %>
+  <!--検索対象がbookの時、本の一覧を表示-->
+    <%= book.title %>
+    <%= book.body %>
+  <% end %>
+<% end %>

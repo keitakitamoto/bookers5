@@ -31,7 +31,15 @@ class User < ApplicationRecord
     followings.include?(user)
     # フォローしているUser達を取得し、include?(other_user)によってother_userが含まれていないかチェック　含まれている：ture 含まれていない：false
   end
-
+  
+  def self.looks(searches,words)
+    if searches == "perfect_match"
+      @user = User.where("name LIKE ?","#{words}")
+    else
+      @user = User.where("name LIKE ?","%#{words}%")
+    end
+  end
+  
   validates :name, length: {maximum: 20, minimum: 2}, uniqueness: true
   validates :introduction, length: {maximum: 50}
   # , if: :user_signed_in? presence :tureだと必須項目になってしまう
