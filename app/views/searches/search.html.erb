@@ -1,18 +1,7 @@
-<table>
- <tr>
-  <td>Title</td>
-  <td>Opinion</td>
- </tr>
-</table>
 <% if @range == "User" %>
-  <% @users.each do |user| %>
-  <!--検索対象がuserの時、ユーザー一覧を表示-->
-    <%= user.name %>
-  <% end %>
+ <h1><%= @range %> search for <%= @word %></h1>
+ <%= render 'users/index', users: @users %>
 <% else %>
-  <% @books.each do |book| %>
-  <!--検索対象がbookの時、本の一覧を表示-->
-    <%= book.title %>
-    <%= book.body %>
-  <% end %>
+ <h1><%= @range %> search for <%= @word %></h1>
+ <%= render 'books/index', books: @books %>
 <% end %>

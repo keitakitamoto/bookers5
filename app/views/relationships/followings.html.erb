@@ -1,19 +1,11 @@
 <h1>Follow Users</h1>
 <tr>
+ <table class= "table" >
   <% if @users.exists? %>
-   <th>name</th>
-   <th></th>
-   <th></th>
 </tr>
+ </table>
 <tbody>
-  <% @users.each do |user| %>
-  <tr>
-   <td><%= user.name %></td>
-   <td>フォロー数: <%= user.followings.count %></td>
-   <td>フォロワー数: <%= user.followers.count %></td>
-   <td><%#= link_to "Show", user %></td>
-  </tr>
- <% end %>
+ <%= render "users/index", users: @users %>
 </tbody>
  <% else %>
    <th>ユーザーはいません</th>
